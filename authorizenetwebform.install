@@ -13,7 +13,7 @@ function authorizenetwebform_requirements($phase) {
   if ($phase == 'install') {
     if (!class_exists('\net\authorize\api\constants\ANetEnvironment')) {
       $requirements['authorizenetwebform_api_library'] = [
-        'description' => t('Webform Authorize.Net requires the authorizenet/authorizenet library. Please run "composer require authorizenet/authorizenet" please.'),
+        'description' => t('Webform Authorize.Net requires the authorizenet/authorizenet library. Run "composer require authorizenet/authorizenet" please.'),
         'severity' => REQUIREMENT_ERROR,
       ];
     }

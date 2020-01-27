@@ -7,14 +7,14 @@
   'use strict';
 
   /**
-   * Attaches the commercePaymentRedirect behavior.
+   * Attaches the authorizenetPaymentRedirect behavior.
    *
    * @type {Drupal~behavior}
    *
    * @prop {Drupal~behaviorAttach} attach
    *   Attaches the commercePaymentRedirect behavior.
    */
-  Drupal.behaviors.commercePaymentRedirect = {
+  Drupal.behaviors.authorizenetPaymentRedirect = {
     attach: function (context) {
       $('.authorizenetwebform-payment-redirect-form', context).submit();
     }

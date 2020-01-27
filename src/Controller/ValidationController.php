@@ -33,10 +33,7 @@ class ValidationController extends ControllerBase {
         $refId = $request->query->get('tid');
         if ($tid === $refId) {
           update_paid($sid, payment_status('success'));
-
-          $output = "<p>Congratulations!  You have successfully registered for the 2017 January Jam: MS Plunge for Parcells. Thank you for your contribution to St Vincent's Medical Center Foundation's Dave Parcells MS Fund. Your contribution will help support individuals and their families with unmet needs as they deal with MS.</p>
-<p>St. Vincent's Medical Center Foundation is a 501 (c) (3) organization. Your gift is tax deductible to the extent allowed by law. Your credit card statement will reflect your contribution to \"St. Vincent's Foundation.\" On behalf of those you are helping, thank you!</p>
-<p>Should you have any difficulty with this transaction, please contact St. Vincent's Medical Center Foundation at (203) 576-5451.</p>";
+          $output = "<p>Congratulations!  You have successfully registered. </br>Thank you for your contribution.</p>";
           $this->messenger()->addMessage(Markup::create($output));
         }
       }
@@ -73,6 +70,7 @@ class ValidationController extends ControllerBase {
    *
    * @param $rid
    *   The transaction reference id.
+   *
    * @return integer|null
    */
   public function getSubmissionByReference($rid) {
