@@ -1,0 +1,7 @@
+offsite_redirect:
+  js:
+    js/offsite-redirect.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

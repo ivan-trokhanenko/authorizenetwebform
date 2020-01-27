@@ -1,0 +1,7 @@
+name: 'Webform Authorize.Net'
+type: module
+description: 'Authorize.Net Webform Inegration'
+core: 8.x
+package: 'Webform'
+dependencies:
+  - webform:webform

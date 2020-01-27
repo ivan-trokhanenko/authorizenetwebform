@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for Webform Authorize.Net.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function authorizenetwebform_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'install') {
+    if (!class_exists('\net\authorize\api\constants\ANetEnvironment')) {
+      $requirements['authorizenetwebform_api_library'] = [
+        'description' => t('Webform Authorize.Net requires the authorizenet/authorizenet library. Please run "composer require authorizenet/authorizenet" please.'),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+  }
+  
+  return $requirements;
+}

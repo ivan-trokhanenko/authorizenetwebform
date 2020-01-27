@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ * Contains authorizenetwebform.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function authorizenetwebform_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the authorizenetwebform module.
+    case 'help.page.authorizenetwebform':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Authorize.Net Webform Inegration') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function authorizenetwebform_theme() {
+  return [
+    'webform_handler_authorize_net_summary' => [
+      'variables' => [
+        'settings' => NULL,
+        'handler' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Defines payment statuses.
+ *
+ * @param $key
+ *
+ * @return string
+ */
+function payment_status($key) {
+  $status = [
+    'pending' => 'Pending',
+    'success' => 'Success',
+    'complete' => 'Complete',
+    'cancelled' => 'Cancelled',
+  ];
+  return $status[$key];
+}
+
+/**
+ * Updates transaction_reference field for webform_submission.
+ *
+ * @param $sid
+ *   The webform submission id.
+ * @param $value
+ *   The transaction_reference value.
+ */
+function update_transaction_reference($sid, $value) {
+  $query = \Drupal::database()->update('webform_submission_data');
+  $query->fields([
+    'value' => $value
+  ]);
+  $query->condition('sid', $sid);
+  $query->condition('name', 'transaction_reference');
+  $query->execute();
+}
+
+/**
+ * Updates paid field for webform_submission.
+ *
+ * @param $sid
+ *   The webform submission id.
+ * @param $value
+ *   The transaction_reference value.
+ */
+function update_paid($sid, $value) {
+  $query = \Drupal::database()->update('webform_submission_data');
+  $query->fields([
+    'value' => $value
+  ]);
+  $query->condition('sid', $sid);
+  $query->condition('name', 'paid');
+  $query->execute();
+}

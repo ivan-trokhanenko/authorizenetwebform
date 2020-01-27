@@ -1,0 +1,11 @@
+{
+  "name": "drupal/authorizenetwebform",
+  "type": "drupal-module",
+  "description": "Provides Webform integration for Authorize.net.",
+  "homepage": "http://drupal.org/project/authorizenetwebform",
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/webform" : "^5",
+    "authorizenet/authorizenet": "2.0.0"
+  }
+}

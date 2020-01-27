@@ -1,0 +1,14 @@
+authorizenetwebform.validation:
+  path: '/admin/authorizenet/validate/{sid}'
+  defaults:
+    _controller: '\Drupal\authorizenetwebform\Controller\ValidationController::validateId'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
+authorizenetwebform.webhook:
+  path: '/admin/authorizenet/webhook'
+  defaults:
+    _controller: '\Drupal\authorizenetwebform\Controller\ValidationController::validateWebhook'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
